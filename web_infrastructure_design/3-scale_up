@@ -1,0 +1,28 @@
+Diagram:
+
+Explanation:
+The user accesses the domain via DNS, which points to a load balancer cluster (Active-Passive).
+
+The load balancers distribute traffic to separate web servers (Nginx only).
+
+Web servers forward to dedicated application servers.
+
+The application servers connect to a separate database cluster (Primary and Replicas).
+
+Monitoring and security layers are present throughout.
+
+Infrastructure Components:
+Load Balancer Cluster: Provides high availability at the LB level.
+
+Web/Application/Database Split: Each tier is deployed on its own server(s).
+
+Modular Design: Improves scalability, isolation, and maintenance.
+
+Monitoring/SSL/Firewalls: Full observability and security.
+
+Benefits:
+Easier to scale each component independently.
+
+Fault isolation across services.
+
+Stronger security and monitoring.

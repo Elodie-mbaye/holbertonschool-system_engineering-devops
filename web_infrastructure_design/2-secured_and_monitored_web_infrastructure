@@ -1,0 +1,28 @@
+Diagram:
+
+Explanation:
+The user accesses www.foobar.com using HTTPS.
+
+A firewall filters requests before they reach the Load Balancer.
+
+The Load Balancer handles SSL termination and forwards traffic.
+
+Backend servers are behind additional firewalls.
+
+Monitoring agents (e.g., SumoLogic) are installed on each server.
+
+Infrastructure Components:
+Firewalls: Block unauthorized traffic at multiple levels.
+
+HTTPS/SSL Certificate: Encrypts traffic from client to Load Balancer.
+
+Monitoring Clients: Collect logs and metrics (e.g., QPS, error rate).
+
+MySQL DB: Same Primary/Replica setup as before.
+
+Issues:
+SSL Termination at Load Balancer: Internal traffic between LB and backend is unencrypted.
+
+Single Write DB Node: Still a SPOF for write operations.
+
+All-in-One Servers: Web, app, and DB on the same machines limits scaling options.

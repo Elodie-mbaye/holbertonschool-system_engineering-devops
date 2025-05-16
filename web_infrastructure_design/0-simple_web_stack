@@ -1,0 +1,42 @@
+Diagram:(Simple_Web_Stack.png)
+
+Explanation:
+When a user types www.foobar.com into their browser:
+
+The browser queries a DNS server to resolve the domain name.
+
+The DNS returns the IP address 8.8.8.8 (configured using an A record).
+
+The browser sends an HTTP request to the server at that IP on port 80.
+
+The Nginx web server receives the request:
+
+Serves static files directly.
+
+Forwards dynamic requests to the application server.
+
+The application server processes the logic and may query the MySQL database.
+
+The response is returned to the user via the web server.
+
+Infrastructure Components:
+Server: A physical or virtual machine running all components.
+
+Domain name: Human-readable name resolved via DNS.
+
+DNS Record: www is an A record pointing to 8.8.8.8.
+
+Nginx: Handles HTTP requests and routes them.
+
+Application Server: Executes dynamic business logic (e.g., PHP).
+
+Database (MySQL): Stores persistent application data.
+
+Protocol: HTTP over TCP/IP.
+
+Issues:
+Single Point of Failure (SPOF): If the server goes down, the website is unavailable.
+
+No scalability: Cannot handle increased traffic load.
+
+No high availability: Downtime occurs during updates or restarts.

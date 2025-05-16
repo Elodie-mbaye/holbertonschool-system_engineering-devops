@@ -1,0 +1,26 @@
+Diagram:
+
+Explanation:
+The user types www.foobar.com and DNS resolves it to the IP of the load balancer.
+
+The load balancer (HAproxy) distributes traffic to two backend servers.
+
+Each backend server contains a web server, app server, and database node.
+
+One MySQL database is the Primary (for writes), and the other is a Replica (read-only).
+
+Infrastructure Components:
+HAproxy (Load Balancer): Distributes incoming traffic.
+
+Algorithm: Round Robin or Least Connections.
+
+Active-Active Setup: Both servers respond to traffic simultaneously.
+
+Primary-Replica Database: Only the Primary handles writes, Replicas handle reads.
+
+Issues:
+Database SPOF: Only one write node; failure impacts availability.
+
+Security risks: No firewall or HTTPS protection.
+
+Lack of monitoring: No visibility into health or metrics.
